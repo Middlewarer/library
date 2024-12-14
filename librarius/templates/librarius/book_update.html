@@ -1,0 +1,15 @@
+{% extends "librarius/base.html" %}
+{% block ininal %}
+{% load crispy_forms_tags %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+{% endblock ininal %}
+
+
+
+{% block content %}
+<form method='post'>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type='submit'>Submit</button>
+</form>
+{% endblock content %}

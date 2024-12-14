@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Page</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-blue-400 to-purple-500 min-h-screen flex items-center justify-center text-white">
+    <div class="text-center">
+        <h1 class="text-5xl font-bold mb-4">Welcome to the Library System!</h1>
+        <p class="text-lg mb-8">Discover a world of knowledge and manage your favorite books effortlessly.</p>
+        {% if user.is_authenticated %}
+        <div class="flex justify-center">
+            <a href="{% url "books:index" %}" class="bg-white text-blue-500 hover:text-blue-700 py-2 px-6 rounded shadow-md font-semibold">Explore Books</a>
+        </div>
+        {% else %}
+        <div class="space-x-4">
+            <a href="{% url "books:index" %}" class="bg-white text-blue-500 hover:text-blue-700 py-2 px-6 rounded shadow-md font-semibold">Explore Books</a>
+            <a href="{% url "books:login" %}" class="bg-white text-purple-500 hover:text-purple-700 py-2 px-6 rounded shadow-md font-semibold">Log In</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

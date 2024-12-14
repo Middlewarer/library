@@ -1,0 +1,27 @@
+{% extends "librarius/base.html" %}
+
+{% load crispy_forms_filters %}
+
+{% block content %}
+<style>
+    textarea {
+        resize: vertical; /* Позволяет менять размер только по вертикали */
+        max-height: 300px; /* Максимальная высота */
+        min-height: 50px; /* Минимальная высота */
+    }
+</style>
+
+<div class="min-h-screen flex items-center justify-center bg-gray-50 py-6 sm:py-12">
+    <div class="w-full max-w-lg bg-white rounded-lg shadow-lg p-8">
+        <h1 class="text-3xl font-bold text-indigo-600 text-center mb-6">Create the new Author</h1>
+        <form method="post" enctype="multipart/form-data" class="space-y-6">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg shadow-md text-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                Submit
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
